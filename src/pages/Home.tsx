@@ -7,6 +7,7 @@ import TaskForm from "../components/TaskForm/TaskForm";
 const Home: React.FC = () => {
   const [taskList, setTaskList] = useState<Task[]>(initialTasks);
   const [showPopup, setShowPopup] = useState(false);
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null); // État pour la tâche sélectionnée
 
   const handleDelete = (id: number): void => {
     setTaskList((prev) => prev.filter((task) => task.id !== id));
@@ -20,8 +21,23 @@ const Home: React.FC = () => {
     );
   };
 
-  const handleAddTask = (newTask: Task): void => {
-    setTaskList((prev) => [...prev, newTask]);
+  const handleAddOrUpdateTask = (task: Task): void => {
+    if (task.id) {
+      // Mise à jour d'une tâche existante
+      setTaskList((prev) =>
+        prev.map((t) => (t.id === task.id ? { ...task } : t))
+      );
+    } else {
+      // Ajout d'une nouvelle tâche
+      setTaskList((prev) => [...prev, { ...task, id: Date.now() }]);
+    }
+    setShowPopup(false);
+    setSelectedTask(null); // Réinitialise la tâche sélectionnée
+  };
+
+  const handleEditTask = (task: Task): void => {
+    setSelectedTask(task); // Préparer la tâche pour modification
+    setShowPopup(true);    // Afficher la popup avec les données
   };
 
   const onDragEnd = (result: DropResult) => {
@@ -49,6 +65,7 @@ const Home: React.FC = () => {
             tasks={taskList.filter((task) => task.status === 0)}
             onDelete={handleDelete}
             onStatusChange={handleStatusChange}
+            onEdit={handleEditTask} // Passer la méthode d'édition
             droppableId="todo"
           />
           <TaskList
@@ -56,20 +73,28 @@ const Home: React.FC = () => {
             tasks={taskList.filter((task) => task.status === 1)}
             onDelete={handleDelete}
             onStatusChange={handleStatusChange}
+            onEdit={handleEditTask} // Passer la méthode d'édition
             droppableId="done"
           />
         </div>
       </DragDropContext>
       <button
         className="add-task-button"
-        onClick={() => setShowPopup(true)}
+        onClick={() => {
+          setSelectedTask(null); // Réinitialise pour une nouvelle tâche
+          setShowPopup(true);
+        }}
       >
         +
       </button>
       {showPopup && (
         <TaskForm
-          onAddTask={handleAddTask}
-          onClose={() => setShowPopup(false)}
+          onAddTask={handleAddOrUpdateTask}
+          onClose={() => {
+            setShowPopup(false);
+            setSelectedTask(null); // Réinitialise en cas de fermeture
+          }}
+          existingTask={selectedTask} // Passer la tâche existante ou null
         />
       )}
     </div>
