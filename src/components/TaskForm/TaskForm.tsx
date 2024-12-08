@@ -27,6 +27,14 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
     return `${day}/${month}/${year}`;
   };
 
+  // Fonction pour obtenir un nouvel ID unique en utilisant un compteur
+  const getNewTaskId = (): number => {
+    const currentMaxId = localStorage.getItem('maxTaskId');
+    const newId = currentMaxId ? parseInt(currentMaxId, 10) + 1 : 1;
+    localStorage.setItem('maxTaskId', newId.toString());
+    return newId;
+  };
+
   useEffect(() => {
     if (existingTask) {
       setTitle(existingTask.title);
@@ -36,15 +44,13 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
     }
   }, [existingTask]);
 
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log("Submitting task with data:", { title, description, date, heure });
-        console.log("Titre :", title);
-        console.log("Description :", description);
-        console.log("Date :", date);
-        console.log("Heure :", heure);
+    console.log("Titre :", title);
+    console.log("Description :", description);
+    console.log("Date :", date);
+    console.log("Heure :", heure);
 
     if (!title || !description || !date || !heure) {
       alert("Toutes les informations sont requises");
@@ -52,7 +58,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
     }
 
     const updatedTask: Task = {
-      id: existingTask ? existingTask.id : Date.now(),
+      id: existingTask ? existingTask.id : getNewTaskId(), // Utilisation du compteur pour générer l'ID
       title,
       description,
       date: convertToDisplayDate(date), // Convertir la date pour le stockage

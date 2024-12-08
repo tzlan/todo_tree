@@ -34,6 +34,7 @@ const Home: React.FC = () => {
     console.log("Received task to add/update:", task); // Vérifie la tâche reçue
     
     setTaskList((prev) => {
+      console.log(task);
       if (task.id) {
         console.log("Updating task with id:", task.id); // Vérifie l'ID pour la mise à jour
         return prev.map((t) => (t.id === task.id ? task : t));
