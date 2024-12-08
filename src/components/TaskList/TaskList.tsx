@@ -12,6 +12,7 @@ interface TaskListProps {
   droppableId: string;
 }
 
+
 const TaskList: React.FC<TaskListProps> = ({
   title,
   tasks,
@@ -21,6 +22,7 @@ const TaskList: React.FC<TaskListProps> = ({
   droppableId,
 }) => {
   return (
+    
     <div className="task-list">
       <h2>{title}</h2>
       <Droppable droppableId={droppableId}>

@@ -1,11 +1,10 @@
-// TaskForm.tsx
 import React, { useState, useEffect } from 'react';
 import { Task } from '../../data/tasks';
 
 interface TaskFormProps {
   onAddTask: (task: Task) => void;
   onClose: () => void;
-  existingTask: Task | null;  // Nouvelle prop pour la tâche existante
+  existingTask: Task | null;
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask }) => {
@@ -14,36 +13,55 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
   const [date, setDate] = useState("");
   const [heure, setHeure] = useState("");
 
-  // Remplir les champs du formulaire si une tâche existante est passée
+  // Fonction pour convertir dd/MM/yyyy en yyyy-MM-dd
+  const convertToHTMLDate = (dateStr: string): string => {
+    if (!dateStr) return "";
+    const [day, month, year] = dateStr.split('/');
+    return `${year}-${month}-${day}`;
+  };
+
+  // Fonction pour convertir yyyy-MM-dd en dd/MM/yyyy
+  const convertToDisplayDate = (dateStr: string): string => {
+    if (!dateStr) return "";
+    const [year, month, day] = dateStr.split('-');
+    return `${day}/${month}/${year}`;
+  };
+
   useEffect(() => {
     if (existingTask) {
       setTitle(existingTask.title);
       setDescription(existingTask.description);
-      setDate(existingTask.date);
+      setDate(convertToHTMLDate(existingTask.date)); // Convertir la date pour l'input HTML
       setHeure(existingTask.heure);
     }
   }, [existingTask]);
 
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    console.log("Submitting task with data:", { title, description, date, heure });
+        console.log("Titre :", title);
+        console.log("Description :", description);
+        console.log("Date :", date);
+        console.log("Heure :", heure);
+
     if (!title || !description || !date || !heure) {
-      alert("All informations please");
+      alert("Toutes les informations sont requises");
       return;
     }
 
-    // Crée ou met à jour la tâche avec un ID unique
     const updatedTask: Task = {
-      id: existingTask ? existingTask.id : Date.now(),  // Si c'est une modification, on garde l'ID existant
+      id: existingTask ? existingTask.id : Date.now(),
       title,
       description,
-      date,
+      date: convertToDisplayDate(date), // Convertir la date pour le stockage
       heure,
-      status: existingTask ? existingTask.status : 0, // Conserver le statut si existant
+      status: existingTask ? existingTask.status : 0,
     };
 
-    onAddTask(updatedTask); // Passe la tâche au composant parent
-    onClose(); // Fermer la pop-up après l'ajout ou la modification
+    onAddTask(updatedTask);
+    onClose();
   };
 
   return (

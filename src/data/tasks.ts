@@ -3,7 +3,7 @@ export interface Task {
     title: string;
     description: string;
     date: string;
-    heure: string;
+    heure: string; 
     status: number;
 }
 

@@ -23,13 +23,13 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onDelete, onStatusChange }) =
                     <FaCheckCircle
                         className={styles.checkIcon}
                         onClick={() => onStatusChange(task.id)}
-                        title="Marquer comme terminé"
+                        title="Finish"
                     />
                 ) : (
                     <FaArrowLeft
                         className={styles.backIcon}
                         onClick={() => onStatusChange(task.id)}
-                        title="Revenir aux tâches à faire"
+                        title="Back to make"
                     />
                 )}
 
@@ -38,7 +38,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onDelete, onStatusChange }) =
                     <FaTrashAlt
                         className={styles.deleteIcon}
                         onClick={() => onDelete(task.id)}
-                        title="Supprimer la tâche"
+                        title="Delete the task"
                     />
                 )}
             </div>
