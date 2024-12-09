@@ -1,35 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Courier Prime', monospace;
+  background-color: #000033;
+  color: #ffffff;
 }
 
 body {
   margin: 0;
-  color: #0b0b0b;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  padding: 20px;
   min-height: 100vh;
-  background-color: #110c4d; /* Fond sombre */
-  flex-direction: column; /* Centrer le contenu */
+  background-color: #000033;
 }
 
 h1 {
-  font-size: 3.8em; /* Augmentation de la taille */
-  line-height: 1.1;
-  color: #ffffff;
+  font-size: 3.2em;
   text-align: center;
   font-family: 'Courier Prime', monospace;
+  color: #ffffff;
+  margin-bottom: 40px;
 }
 
 button {
@@ -151,43 +140,46 @@ button:focus-visible {
 /* Bouton "+" */
 .add-task-button {
   position: fixed;
-  bottom: 25px; /* Déplacement du bouton légèrement plus bas */
-  right: 25px; /* Déplacement du bouton légèrement plus à droite */
-  width: 70px; /* Taille du bouton "+" agrandie */
-  height: 70px;
-  background-color: #646cff;
-  color: white;
-  font-size: 32px; /* Augmentation de la taille de la police */
-  border: none;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 24px;
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
 }
 
 .add-task-button:hover {
-  background-color: #535bf2;
+  transform: scale(1.1);
 }
 
 .task-list-container {
-  display: flex; /* Flexbox pour aligner les colonnes côte à côte */
-  flex-direction: row; /* Aligne les colonnes horizontalement */
-  gap: 40px; /* Augmentation de l'espacement entre les colonnes */
-  width: 100%; /* S'étend sur toute la largeur disponible */
-  max-width: 100%; /* Limite la largeur pour éviter un étirement excessif */
-  box-sizing: border-box; /* Inclut le padding et les bordures */
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.task-list-container > div {
-  flex: 1; /* Assure que les colonnes prennent un espace égal */
-  background-color: #fffff7; /* Fond blanc pour chaque colonne */
-  border-radius: 10px; /* Coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet visuel */
-  padding: 25px; /* Augmentation de l'espace interne */
-  min-width: 400px; /* Largeur minimale des blocs augmentée */
-  max-width: 55%; /* Largeur maximale des blocs augmentée */
-  height: auto;
+.task-list {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 400px;
+}
+
+.task-list h2 {
+  color: #000000;
+  font-family: 'Courier Prime', monospace;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-top: 0;
 }

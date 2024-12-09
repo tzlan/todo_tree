@@ -93,7 +93,7 @@ export const App: React.FC = () => {
         {/* Colonnes des tâches */}
         <div className="task-list-container">
           <TaskList
-            title="To make"
+            title="To-Do"
             tasks={taskList.filter((task) => task.status === 0)}
             onDelete={handleDelete}
             onStatusChange={handleStatusChange}
@@ -101,7 +101,7 @@ export const App: React.FC = () => {
             droppableId="todo"
           />
           <TaskList
-            title="Already made"
+            title="Done"
             tasks={taskList.filter((task) => task.status === 1)}
             onDelete={handleDelete}
             onStatusChange={handleStatusChange}
