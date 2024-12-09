@@ -52,10 +52,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
     console.log("Date :", date);
     console.log("Heure :", heure);
 
-    if (!title || !description || !date || !heure) {
-      alert("Toutes les informations sont requises");
-      return;
-    }
+   
 
     const updatedTask: Task = {
       id: existingTask ? existingTask.id : getNewTaskId(), // Utilisation du compteur pour générer l'ID
