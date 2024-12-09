@@ -4,7 +4,7 @@ import { tasks as initialTasks, Task } from "../data/tasks";
 import TaskList from "../components/TaskList/task-list";
 import TaskForm from "../components/TaskForm/task-form";
 
-const Home: React.FC = () => {
+export const App: React.FC = () => {
   // Initialiser avec les tâches du localStorage s'il y en a, sinon utiliser initialTasks
   const [taskList, setTaskList] = useState<Task[]>(() => {
     const savedTasks = localStorage.getItem('tasks');
@@ -113,4 +113,3 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
