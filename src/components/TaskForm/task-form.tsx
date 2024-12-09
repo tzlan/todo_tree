@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Task } from '../../data/tasks';
 
 interface TaskFormProps {
@@ -13,21 +13,21 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
   const [date, setDate] = useState("");
   const [heure, setHeure] = useState("");
 
-  // Fonction pour convertir dd/MM/yyyy en yyyy-MM-dd
+  // Convert dd/MM/yyyy to yyyy-MM-dd
   const convertToHTMLDate = (dateStr: string): string => {
     if (!dateStr) return "";
     const [day, month, year] = dateStr.split('/');
     return `${year}-${month}-${day}`;
   };
 
-  // Fonction pour convertir yyyy-MM-dd en dd/MM/yyyy
+  // Convert yyyy-MM-dd to dd/MM/yyyy
   const convertToDisplayDate = (dateStr: string): string => {
     if (!dateStr) return "";
     const [year, month, day] = dateStr.split('-');
     return `${day}/${month}/${year}`;
   };
 
-  // Fonction pour obtenir un nouvel ID unique en utilisant un compteur
+  // Function to get a new unique ID using a counter
   const getNewTaskId = (): number => {
     const currentMaxId = localStorage.getItem('maxTaskId');
     const newId = currentMaxId ? parseInt(currentMaxId, 10) + 1 : 1;

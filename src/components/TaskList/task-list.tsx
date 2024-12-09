@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
-import TaskItem from "../TaskItem/TaskItem";
+import TaskItem from "../TaskItem/task-item";
 import { Task } from "../../data/tasks";
 
 interface TaskListProps {

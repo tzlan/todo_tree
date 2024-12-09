@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { tasks as initialTasks, Task } from "../data/tasks";
-import TaskList from "../components/TaskList/TaskList";
-import TaskForm from "../components/TaskForm/TaskForm";
+import TaskList from "../components/TaskList/task-list";
+import TaskForm from "../components/TaskForm/task-form";
 
 const Home: React.FC = () => {
   // Initialiser avec les tâches du localStorage s'il y en a, sinon utiliser initialTasks
