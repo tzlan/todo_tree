@@ -2,9 +2,10 @@
     width: 80%; /* Le bloc prend toute la largeur de son conteneur */
     max-width: 800px; /* Largeur maximale pour limiter l'étalement */
     height: auto; /* Laisse la hauteur s'adapter au contenu */
-    padding: 1rem 2rem; /* Espacement interne plus large horizontalement */
+    padding: 10; /* Espacement interne plus large horizontalement */
     margin: 0.5rem auto; /* Centrer le bloc et espacement vertical entre les lignes */
     display: flex; /* Gérer la disposition interne */
+    flex-direction: column;
     justify-content: space-between; /* Écarte les éléments enfants */
     align-items: center; /* Aligne les éléments verticalement */
 }
