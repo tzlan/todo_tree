@@ -24,7 +24,7 @@ const TaskList: React.FC<TaskListProps> = ({
   return (
     
     <div className="task-list">
-      <h2>{title}</h2>
+      <h2 style={{textAlign: "center", fontWeight: "bolder", fontSize: "2em"}}>{title}</h2>
       <Droppable droppableId={droppableId}>
         {(provided) => (
           <div ref={provided.innerRef} {...provided.droppableProps}>
@@ -44,13 +44,8 @@ const TaskList: React.FC<TaskListProps> = ({
                       task={task}
                       onDelete={onDelete}
                       onStatusChange={onStatusChange}
+                      onEdit={onEdit}
                     />
-                    <button
-                      className="edit-task-button"
-                      onClick={() => onEdit(task)} // Appeler la fonction d'édition avec la tâche
-                    >
-                      ✏️
-                    </button>
                   </div>
                 )}
               </Draggable>
