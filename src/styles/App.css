@@ -5,55 +5,60 @@ body {
 }
 
 .home {
-  padding: 20px;
+  padding: 30px; /* Augmenter l'espace autour du contenu */
 }
 
 .columns {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 30px; /* Augmenter l'espacement entre les colonnes */
 }
 
+/* Augmenter la largeur des blocs de tâches */
 .task-list {
-  width: 45%;
+  width: 70%; /* Augmenter la largeur de la liste des tâches */
   border: 1px solid #000000;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 30px; /* Augmenter le padding pour rendre l'intérieur plus spacieux */
+  border-radius: 8px; /* Coins plus arrondis */
   background-color: #0f256a;
 }
 
+/* Augmenter la taille des items de tâche */
 .task-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 30px; /* Augmenter l'espace entre les éléments */
   border: 1px solid #000000;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
+  margin-bottom: 20px; /* Espacement plus grand entre les éléments */
+  padding: 20px; /* Augmenter le padding pour rendre l'item plus grand */
+  border-radius: 8px; /* Coins plus arrondis */
   background-color: #ffffff;
 }
 
+/* Style pour la poignée de glissement */
 .drag-handle {
   cursor: grab;
   color: #666;
-  font-size: 20px;
-  padding: 0 5px;
+  font-size: 28px; /* Augmenter la taille de la poignée */
+  padding: 0 12px;
   user-select: none;
 }
 
+/* Style des actions de tâche */
 .task-actions {
   margin-left: auto;
   display: flex;
-  gap: 5px;
+  gap: 15px; /* Espacement plus large entre les boutons */
 }
 
+/* Boutons */
 button {
-  margin-right: 5px;
-  padding: 8px 16px;
+  margin-right: 15px; /* Espacement plus large à droite */
+  padding: 15px 25px; /* Plus de padding pour rendre les boutons plus grands */
   background-color: #007bff;
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px; /* Coins plus arrondis pour les boutons */
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -62,6 +67,7 @@ button:hover {
   background-color: #0056b3;
 }
 
+/* Styles responsives */
 @media (max-width: 768px) {
   .columns {
     flex-direction: column;
@@ -70,5 +76,14 @@ button:hover {
   .task-list {
     width: 100%;
     margin-bottom: 20px;
+    padding: 20px; /* Ajuster le padding sur petits écrans */
+  }
+
+  .task-item {
+    padding: 18px; /* Ajuster le padding sur petits écrans */
+  }
+
+  button {
+    padding: 12px 22px; /* Ajuster le padding des boutons */
   }
 }
