@@ -6,78 +6,67 @@ import TaskForm from "../components/TaskForm/task-form";
 import React from "react";
 
 export const App: React.FC = () => {
-  // État des tâches
+  // Initialiser avec les tâches du localStorage ou les tâches par défaut
   const [taskList, setTaskList] = useState<Task[]>(() => {
     const savedTasks = localStorage.getItem("tasks");
-    return savedTasks ? JSON.parse(savedTasks) : initialTasks;
+    try {
+      return savedTasks ? JSON.parse(savedTasks).filter((task: Task) => task.id && task.title) : initialTasks;
+    } catch {
+      console.error("Erreur lors du parsing des données de localStorage.");
+      return initialTasks;
+    }
   });
 
-  // État pour la popup et la tâche sélectionnée
-  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
-  // Sauvegarder les tâches dans localStorage à chaque modification
+  // Sauvegarder dans le localStorage chaque fois que la liste des tâches est mise à jour
   useEffect(() => {
+    console.log("Updated taskList:", taskList);
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }, [taskList]);
 
-  /**
-   * Supprimer une tâche par ID
-   */
   const handleDelete = (id: number): void => {
     setTaskList((prev) => prev.filter((task) => task.id !== id));
   };
 
-  /**
-   * Changer le statut d'une tâche
-   */
   const handleStatusChange = (id: number): void => {
     setTaskList((prev) =>
       prev.map((task) =>
-        task.id === id
-          ? { ...task, status: task.status === 0 ? 1 : 0 }
-          : task
+        task.id === id ? { ...task, status: task.status === 0 ? 1 : 0 } : task
       )
     );
   };
 
-  /**
-   * Ajouter ou mettre à jour une tâche
-   */
   const handleAddOrUpdateTask = (task: Task): void => {
+    console.log("Received task to add/update:", task);
+
     setTaskList((prev) => {
-      if (task.id) {
-        // Met à jour la tâche existante
+      if (prev.some((t) => t.id === task.id)) {
+        console.log("Updating task with id:", task.id);
         return prev.map((t) => (t.id === task.id ? task : t));
       } else {
-        // Ajoute une nouvelle tâche
         const maxId = prev.length > 0 ? Math.max(...prev.map((t) => t.id)) : 0;
-        return [...prev, { ...task, id: maxId + 1 }];
+        const newTask = { ...task, id: maxId + 1 };
+        console.log("Adding new task with ID:", newTask.id);
+        return [...prev, newTask];
       }
     });
   };
 
-  /**
-   * Préparer l'édition d'une tâche
-   */
   const handleEditTask = (task: Task): void => {
     setSelectedTask(task);
     setShowPopup(true);
   };
 
-  /**
-   * Gestion du glisser-déposer (optionnel pour le moment)
-   */
-  const onDragEnd = (result: DropResult): void => {
+  const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
-
-    if (!destination) return; // Si l'utilisateur a annulé le déplacement
+    if (!destination) return;
 
     const items = [...taskList];
     const [reorderedItem] = items.splice(source.index, 1);
 
     if (source.droppableId !== destination.droppableId) {
-      // Met à jour le statut en fonction de la nouvelle colonne
       reorderedItem.status = destination.droppableId === "done" ? 1 : 0;
     }
 
