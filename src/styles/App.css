@@ -2,88 +2,156 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f5f5f5; /* Ajout d'une couleur de fond légère */
+  min-height: 100vh; /* Assure que le corps prend toute la hauteur de la fenêtre */
 }
 
 .home {
-  padding: 30px; /* Augmenter l'espace autour du contenu */
+  padding: 40px;  /* Augmenté de 30px à 40px */
+  max-width: 1400px;  /* Définit une largeur maximale */
+  margin: 0 auto;  /* Centre le contenu */
 }
 
-.columns {
+.home h1 {
+  font-size: 2.5rem;  /* Titre plus grand */
+  margin-bottom: 40px;  /* Plus d'espace sous le titre */
+  text-align: center;
+}
+
+.task-list-container {
   display: flex;
-  justify-content: space-between;
-  gap: 30px; /* Augmenter l'espacement entre les colonnes */
+  justify-content: center;  /* Centre les colonnes */
+  gap: 50px;  /* Augmenté de 30px à 50px */
+  min-height: 80vh;  /* Prend 80% de la hauteur de la vue */
 }
 
-/* Augmenter la largeur des blocs de tâches */
 .task-list {
-  width: 70%; /* Augmenter la largeur de la liste des tâches */
-  border: 1px solid #000000;
-  padding: 30px; /* Augmenter le padding pour rendre l'intérieur plus spacieux */
-  border-radius: 8px; /* Coins plus arrondis */
+  width: 45%;  /* Réduit de 70% à 45% pour que les deux colonnes soient plus équilibrées */
+  min-width: 400px;  /* Largeur minimum */
+  border: 2px solid #000000;  /* Bordure plus épaisse */
+  padding: 40px;  /* Augmenté de 30px à 40px */
+  border-radius: 12px;  /* Coins plus arrondis */
   background-color: #0f256a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Ajout d'une ombre */
+  position: relative;
 }
 
-/* Augmenter la taille des items de tâche */
+.task-list h2 {
+  color: white;
+  font-size: 1.8rem;  /* Titre de colonne plus grand */
+  margin-bottom: 30px;  /* Plus d'espace sous le titre */
+  text-align: center;
+}
+
 .task-item {
   display: flex;
   align-items: center;
-  gap: 30px; /* Augmenter l'espace entre les éléments */
+  gap: 40px;  /* Augmenté de 30px à 40px */
   border: 1px solid #000000;
-  margin-bottom: 20px; /* Espacement plus grand entre les éléments */
-  padding: 20px; /* Augmenter le padding pour rendre l'item plus grand */
-  border-radius: 8px; /* Coins plus arrondis */
+  margin-bottom: 25px;  /* Augmenté de 20px à 25px */
+  padding: 25px;  /* Augmenté de 20px à 25px */
+  border-radius: 10px;
   background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
 }
 
-/* Style pour la poignée de glissement */
+.task-item:hover {
+  transform: translateY(-2px);  /* Effet de survol */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .drag-handle {
   cursor: grab;
   color: #666;
-  font-size: 28px; /* Augmenter la taille de la poignée */
-  padding: 0 12px;
-  user-select: none;
+  font-size: 32px;  /* Augmenté de 28px à 32px */
+  padding: 0 15px;
 }
 
-/* Style des actions de tâche */
 .task-actions {
   margin-left: auto;
   display: flex;
-  gap: 15px; /* Espacement plus large entre les boutons */
+  gap: 20px;  /* Augmenté de 15px à 20px */
 }
 
-/* Boutons */
-button {
-  margin-right: 15px; /* Espacement plus large à droite */
-  padding: 15px 25px; /* Plus de padding pour rendre les boutons plus grands */
+.add-task-button {
+  margin-top: 30px;
+  width: 50px;  /* Augmenté de 40px à 50px */
+  height: 50px;  /* Augmenté de 40px à 50px */
+  padding: 0;
+  border-radius: 50%;
   background-color: #007bff;
   color: #ffffff;
   border: none;
-  border-radius: 8px; /* Coins plus arrondis pour les boutons */
   cursor: pointer;
-  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;  /* Augmenté de 24px à 28px */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.add-task-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+button {
+  margin-right: 20px;  /* Augmenté de 15px à 20px */
+  padding: 18px 30px;  /* Augmenté de 15px/25px à 18px/30px */
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
 button:hover {
   background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
-/* Styles responsives */
+/* Styles responsifs */
+@media (max-width: 1200px) {
+  .task-list {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  .task-list-container {
+    gap: 30px;
+  }
+  
+  .task-list {
+    padding: 30px;
+  }
+}
+
 @media (max-width: 768px) {
-  .columns {
+  .task-list-container {
     flex-direction: column;
+    align-items: center;
   }
 
   .task-list {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 20px; /* Ajuster le padding sur petits écrans */
+    width: 90%;  /* Augmenté pour les petits écrans */
+    margin-bottom: 30px;
+    min-width: unset;
   }
 
   .task-item {
-    padding: 18px; /* Ajuster le padding sur petits écrans */
+    padding: 20px;
   }
 
   button {
-    padding: 12px 22px; /* Ajuster le padding des boutons */
+    padding: 15px 25px;
+  }
+
+  .home {
+    padding: 20px;
   }
 }

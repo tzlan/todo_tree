@@ -88,6 +88,8 @@ export const App: React.FC = () => {
             onStatusChange={handleStatusChange}
             onEdit={handleEditTask}
             droppableId="todo"
+            setSelectedTask = {setSelectedTask}
+            setShowPopup = { setShowPopup}
           />
           <TaskList
             title="Done"
@@ -95,21 +97,13 @@ export const App: React.FC = () => {
             onDelete={handleDelete}
             onStatusChange={handleStatusChange}
             onEdit={handleEditTask}
-            droppableId="done"
+            droppableId="done"            
+            setSelectedTask = {setSelectedTask}
+            setShowPopup = { setShowPopup}
+
           />
         </div>
       </DragDropContext>
-
-      {/* Bouton pour ajouter une tâche */}
-      <button
-        className="add-task-button"
-        onClick={() => {
-          setSelectedTask(null); // Réinitialiser la tâche sélectionnée
-          setShowPopup(true); // Ouvrir le formulaire
-        }}
-      >
-        +
-      </button>
 
       {/* Popup du formulaire */}
       {showPopup && (

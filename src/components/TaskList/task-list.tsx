@@ -2,6 +2,7 @@ import * as React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import TaskItem from "../TaskItem/task-item";
 import { Task } from "../../data/tasks";
+import  style from  "./task-list.module.css"
 
 interface TaskListProps {
   title: string;
@@ -10,6 +11,9 @@ interface TaskListProps {
   onStatusChange: (id: number) => void;
   onEdit: (task: Task) => void; // Ajout de la fonction d'édition
   droppableId: string;
+  setSelectedTask: React.Dispatch<React.SetStateAction<Task | null>>
+  setShowPopup: React.Dispatch<React.SetStateAction<boolean>>
+  
 }
 
 
@@ -19,7 +23,7 @@ const TaskList: React.FC<TaskListProps> = ({
   onDelete,
   onStatusChange,
   onEdit, // Fonction d'édition passée en props
-  droppableId,
+  droppableId,setSelectedTask,setShowPopup
 }) => {
   return (
     
@@ -54,6 +58,16 @@ const TaskList: React.FC<TaskListProps> = ({
           </div>
         )}
       </Droppable>
+
+      <button
+        className={style.add_task_button}
+        onClick={() => {
+          setSelectedTask(null); // Réinitialiser la tâche sélectionnée
+          setShowPopup(true); // Ouvrir le formulaire
+        }}
+      >
+        +
+      </button>
     </div>
   );
 };

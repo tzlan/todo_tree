@@ -70,18 +70,18 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
   return (
     <div className="task-form-page">
       <div className="form-container">
-        <h2 className="form-title">{existingTask ? 'Modifier la Tâche' : 'Nouvelle Tâche'}</h2>
+        <h2 className="form-title">{existingTask ? 'Update Task' : 'Add task'}</h2>
         <form onSubmit={handleSubmit}>
           <input
             className="form-input"
             type="text"
-            placeholder="Titre"
+            placeholder="Task Name"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
             className="form-textarea"
-            placeholder="Description"
+            placeholder="Task Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -99,10 +99,10 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
           />
           <div className="form-actions">
             <button type="button" className="cancel-btn" onClick={onClose}>
-              Annuler
+              Cancel
             </button>
             <button type="submit" className="submit-btn">
-              {existingTask ? 'Mettre à jour' : 'Ajouter'}
+              {existingTask ? 'Update' : ' Add'}
             </button>
           </div>
         </form>

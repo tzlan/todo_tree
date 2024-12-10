@@ -1,0 +1,17 @@
+.add_task_button {
+  margin-top: 30px;
+  width: 50px;  /* Augmenté de 40px à 50px */
+  height: 50px;  /* Augmenté de 40px à 50px */
+  padding: 0;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #7e4343;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;  /* Augmenté de 24px à 28px */
+  box-shadow: 0 4px 6px rgba(248, 45, 45, 0.1);
+  transition: all 0.3s ease;
+}
