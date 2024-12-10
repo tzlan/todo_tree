@@ -2,3 +2,16 @@
     display: flex;
     background-color: rgb(96, 48, 141);
 }
+
+.task-list {
+    flex: 1;
+    background: #FFFFF6;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 400px;
+  }
+
+  .task-item:hover {
+    transform: translateY(-2px);  /* Effet de survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }

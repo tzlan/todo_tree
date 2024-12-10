@@ -1,10 +1,4 @@
-.task-list {
-  flex: 1;
-  background: #FFFFF6;
-  border-radius: 10px;
-  padding: 20px;
-  min-height: 400px;
-}
+
 
 .home {
   padding: 40px;  /* Augmenté de 30px à 40px */
@@ -19,10 +13,7 @@
 }
 
 
-.task-item:hover {
-  transform: translateY(-2px);  /* Effet de survol */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+
 
 .drag-handle {
   cursor: grab;
@@ -47,8 +38,5 @@ button {
   font-size: 1rem;
 }
 
-button:hover {
-  background-color: #000000;
-  transform: translateY(-2px);
-}
+
 

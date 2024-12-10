@@ -10,6 +10,7 @@
 
 .taskContent {
     flex: 1;
+    box-shadow: 0 4px 48px 0px #B7B2A440;
 }
 
 .taskTitle {
@@ -69,11 +70,6 @@
 }
 
 .editIcon {
-    color: #666666;
+    color: #ac1717;
     font-size: 0.9em;
-    transition: color 0.2s;
-}
-
-.editIcon:hover {
-    color: #000000;
 }

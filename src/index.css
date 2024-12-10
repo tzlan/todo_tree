@@ -70,7 +70,7 @@ button:focus-visible {
 
 /* Conteneur du formulaire */
 .form-container {
-  background-color: #242424; /* Fond sombre */
+  background-color: #ffffff; /* Fond sombre */
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 2.5rem; /* Augmentation du padding */
@@ -82,8 +82,8 @@ button:focus-visible {
 .form-title {
   font-size: 1.8rem; /* Augmentation de la taille du titre */
   margin-bottom: 1.5rem; /* Espacement augmenté */
-  color: #ffffff;
-  text-align: center;
+  color: #080808;
+  text-align: left;
 }
 
 /* Champs de saisie */
@@ -95,8 +95,8 @@ button:focus-visible {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1.2rem; /* Augmentation de la taille de la police */
-  background-color: #1a1a1a; /* Fond sombre des champs */
-  color: #ffffff; /* Texte en blanc */
+  background-color: #ffffff; /* Fond sombre des champs */
+  color: #000000; /* Texte en blanc */
 }
 
 .form-textarea {
@@ -126,6 +126,7 @@ button:focus-visible {
 
 .submit-btn {
   background-color: #29a43c;
+ 
   color: white;
 }
 
