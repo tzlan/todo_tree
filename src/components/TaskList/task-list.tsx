@@ -3,6 +3,7 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 import TaskItem from "../TaskItem/task-item";
 import { Task } from "../../data/tasks";
 import  style from  "./task-list.module.css"
+import "../../styles/App.css"
 
 interface TaskListProps {
   title: string;

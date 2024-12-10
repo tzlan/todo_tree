@@ -1,3 +1,13 @@
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #040541; /* Ajout d'une couleur de fond légère */
+  min-height: 100vh; /* Assure que le corps prend toute la hauteur de la fenêtre */
+}
+
+
+
 .add_task_button {
     
 
@@ -9,8 +19,8 @@
   height: 50px;  /* Augmenté de 40px à 50px */
   padding: 0;
   border-radius: 50%;
-  background-color: #007bff;
-  color: #7e4343;
+  background-color: #1C2E36;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   display: flex;
@@ -26,4 +36,137 @@
     display: flex;
     width: 100%;
     flex-direction: row-reverse;
+}
+
+.task-list {
+    width: 45%;  /* Réduit de 70% à 45% pour que les deux colonnes soient plus équilibrées */
+    min-width: 400px;  /* Largeur minimum */
+    border: 2px solid #000000;  /* Bordure plus épaisse */
+    padding: 40px;  /* Augmenté de 30px à 40px */
+    border-radius: 12px;  /* Coins plus arrondis */
+    background-color: #0f256a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Ajout d'une ombre */
+    position: relative;
+  }
+
+
+.add-task-button {
+  margin-top: 30px;
+  width: 50px;  /* Augmenté de 40px à 50px */
+  height: 50px;  /* Augmenté de 40px à 50px */
+  padding: 0;
+  border-radius: 50%;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;  /* Augmenté de 24px à 28px */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 40px;  /* Augmenté de 30px à 40px */
+  border: 1px solid #000000;
+  margin-bottom: 25px;  /* Augmenté de 20px à 25px */
+  padding: 25px;  /* Augmenté de 20px à 25px */
+  border-radius: 10px;
+  background-color: #b71d1d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.task-list-container {
+  display: flex;
+  justify-content: center;  /* Centre les colonnes */
+  gap: 50px;  /* Augmenté de 30px à 50px */
+  min-height: 80vh;  /* Prend 80% de la hauteur de la vue */
+}
+
+
+
+.task-list h2 {
+  color: white;
+  font-size: 1.8rem;  /* Titre de colonne plus grand */
+  margin-bottom: 30px;  /* Plus d'espace sous le titre */
+  text-align: center;
+}
+
+.task-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;  /* Augmenté de 15px à 20px */
+}
+.add-task-button:hover {
+  background-color: #000000;
+  transform: scale(1.1);
+}
+
+.task-list {
+  width: 90%;  /* Augmenté pour les petits écrans */
+  margin-bottom: 30px;
+  min-width: unset;
+}
+
+
+
+.add-task-button {
+  margin-top: 30px;
+  width: 50px;  /* Augmenté de 40px à 50px */
+  height: 50px;  /* Augmenté de 40px à 50px */
+  padding: 0;
+  border-radius: 50%;
+  background-color: #000000;
+  color: #550101;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;  /* Augmenté de 24px à 28px */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Styles responsifs */
+@media (max-width: 1200px) {
+  .task-list {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  .task-list-container {
+    gap: 30px;
+  }
+  
+  .task-list {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .task-list-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+  .task-item {
+    padding: 20px;
+  }
+
+  button {
+    padding: 15px 25px;
+  }
+
+  .home {
+    padding: 20px;
+  }
 }
