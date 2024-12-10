@@ -59,16 +59,26 @@ const TaskList: React.FC<TaskListProps> = ({
         )}
       </Droppable>
 
-      <button
-        className={style.add_task_button}
-        onClick={() => {
-          setSelectedTask(null); // Réinitialiser la tâche sélectionnée
-          setShowPopup(true); // Ouvrir le formulaire
-        }}
-      >
-        +
-      </button>
+ {/* If it's to do ok else not button */}
+ {title === "To-Do" && (
+        
+        <div className={style.add_task_button_container}>
+              <button
+            className={style.add_task_button}
+            onClick={() => {
+              setSelectedTask(null); // Réinitialiser la tâche sélectionnée
+              setShowPopup(true); // Ouvrir le formulaire
+            }}
+          >
+            +
+        </button>
+
+        </div>
+
+     
+      )}
     </div>
+    
   );
 };
 

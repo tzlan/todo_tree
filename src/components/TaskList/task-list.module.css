@@ -1,4 +1,9 @@
 .add_task_button {
+    
+
+  align-items: right;
+  bottom: 10%;
+  right: 10%;
   margin-top: 30px;
   width: 50px;  /* Augmenté de 40px à 50px */
   height: 50px;  /* Augmenté de 40px à 50px */
@@ -14,4 +19,11 @@
   font-size: 28px;  /* Augmenté de 24px à 28px */
   box-shadow: 0 4px 6px rgba(248, 45, 45, 0.1);
   transition: all 0.3s ease;
+}
+
+.add_task_button_container{
+
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
 }
