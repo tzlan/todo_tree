@@ -39,8 +39,8 @@ export const App: React.FC = () => {
         console.log("Updating task with id:", task.id); // Vérifie l'ID pour la mise à jour
         return prev.map((t) => (t.id === task.id ? task : t));
       } else {
-        const maxId = prev.length > 0 ? Math.max(...prev.map((t) => t.id)) : 0;
-        const newTask = { ...task, id: maxId + 1 };
+        const highestId = prev.length > 0 ? Math.max(...prev.map((t) => t.id)) : 0;
+        const newTask = { ...task, id: highestId + 1 };
         console.log("Adding new task with ID:", newTask.id); // Vérifie l'ID pour l'ajout
         return [...prev, newTask];
       }

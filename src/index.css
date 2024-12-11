@@ -76,6 +76,10 @@ button:focus-visible {
   padding: 2.5rem; /* Augmentation du padding */
   width: 90%;
   max-width: 700px; /* Largeur du formulaire augmentée */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les éléments */
+  justify-content: center; /* Centrer le contenu */
 }
 
 /* Titre du formulaire */
@@ -83,13 +87,13 @@ button:focus-visible {
   font-size: 1.8rem; /* Augmentation de la taille du titre */
   margin-bottom: 1.5rem; /* Espacement augmenté */
   color: #080808;
-  text-align: left;
+  text-align: center; /* Centrer le titre */
 }
 
 /* Champs de saisie */
 .form-input,
 .form-textarea {
-  width: 100%;
+  width: -webkit-fill-available; /* Réduit la largeur des champs */
   padding: 1.2rem; /* Augmentation de la taille des champs */
   margin-bottom: 1.5rem; /* Espacement augmenté */
   border: 1px solid #ccc;
@@ -107,7 +111,9 @@ button:focus-visible {
 /* Boutons */
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centre les boutons horizontalement */
+  align-items: center; /* Centre les boutons verticalement si nécessaire */
+  width: 100%; /* Utiliser toute la largeur du parent */
 }
 
 .cancel-btn,
@@ -124,24 +130,9 @@ button:focus-visible {
   color: white;
 }
 
-.form-actions {
-  display: flex;
-  justify-content: center; /* Centre le bouton horizontalement */
-  align-items: center; /* Centre le bouton verticalement si nécessaire */
-}
-
 .submit-btn {
-  padding: 1.2rem 2rem;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
   background-color: #29a43c;
   color: white;
-}
-
-.submit-btn:hover {
-  background-color: #535bf2;
 }
 
 .cancel-btn:hover {

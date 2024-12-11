@@ -14,18 +14,22 @@
 }
 
 .taskTitle {
+    font-style: "Inter";
+    padding-left: 20px;
     color: #000000;
     font-size: 1.1em;
     margin: 0;
 }
 
 .taskDescription {
+    padding-left: 20px;
     color: #666666;
     font-size: 0.9em;
     margin: 5px 0;
 }
 
 .taskDate {
+    padding-left: 20px;
     color: #999999;
     font-size: 0.8em;
 }

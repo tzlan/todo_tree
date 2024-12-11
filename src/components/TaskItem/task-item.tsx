@@ -26,7 +26,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onDelete, onStatusChange, onE
                 </div>
                 <p className={styles.taskDescription}>{task.description}</p>
                 <p className={styles.taskDate}>
-                    {task.heure}, {task.date}
+                    {task.hour}, {task.date}
                 </p>
             </div>
             <div className={styles.actions}>

@@ -12,14 +12,14 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [heure, setHeure] = useState("");
+  const [hour, setHour] = useState("");
 
   useEffect(() => {
     if (existingTask) {
       setTitle(existingTask.title);
       setDescription(existingTask.description);
       setDate(convertToHTMLDate(existingTask.date));
-      setHeure(existingTask.heure);
+      setHour(existingTask.hour);
     }
   }, [existingTask]);
 
@@ -36,9 +36,9 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
   };
 
   const getNewTaskId = (): number => {
-    const currentMaxId = localStorage.getItem('maxTaskId');
-    const newId = currentMaxId ? parseInt(currentMaxId, 10) + 1 : 1;
-    localStorage.setItem('maxTaskId', newId.toString());
+    const currentHighestId = localStorage.getItem('currentHighestId');
+    const newId = currentHighestId ? parseInt(currentHighestId, 10) + 1 : 1;
+    localStorage.setItem('currentHighestId', newId.toString());
     return newId;
   };
 
@@ -50,7 +50,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
       title,
       description,
       date: convertToDisplayDate(date),
-      heure,
+      hour,
       status: existingTask ? existingTask.status : 0,
     };
 
@@ -91,8 +91,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, onClose, existingTask })
           <input
             className="form-input"
             type="time"
-            value={heure}
-            onChange={(e) => setHeure(e.target.value)}
+            value={hour}
+            onChange={(e) => setHour(e.target.value)}
           />
           <div className="form-actions">
         
